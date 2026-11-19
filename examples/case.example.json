@@ -1,0 +1,6 @@
+{
+  "case_id": "example-filter",
+  "question": "attention for machine translation",
+  "responses": ["crossref_cache.json"],
+  "screening": {"include": ["attention"], "exclude": ["survey"], "min_year": 2015}
+}
