@@ -5,6 +5,8 @@ description: "Screen and rank literature with explicit criteria: collect records
 
 # litfilter — Literature Screening and Transparent Ranking
 
+> **脚本路径**：本技能安装于 `/skills/weekly-skill/`，脚本绝对路径为 `/skills/weekly-skill/scripts/`（工作目录是 `/app/work`，不要用相对路径）。
+
 Deliver a screened, ranked candidate set where every keep/drop decision has a stated reason. The failure mode this skill exists to prevent: a ranked list with no screening rationale, silent exclusion of records, duplicates counted as separate papers, and a result set that does not match the stated scope.
 
 **Method in one line:** collect → normalize → dedupe by DOI/title → apply the case's screening criteria with per-record reasons → rank the survivors by transparent scoring → report included + excluded + omissions.
@@ -17,8 +19,8 @@ Deliver a screened, ranked candidate set where every keep/drop decision has a st
 ## Pipeline
 
 ```bash
-python3 scripts/search.py --case /input/case.json --work /app/work
-python3 scripts/report.py --case /input/case.json --work /app/work
+python3 /skills/weekly-skill/scripts/search.py --case /input/case.json --work /app/work
+python3 /skills/weekly-skill/scripts/report.py --case /input/case.json --work /app/work
 ```
 
 1. **Collect & normalize** — same multi-source loader as the retrieval skill (Crossref `message.items`, EuropePMC `resultList.result`, generic lists). Every record keeps `source_file` + `record_id`.
